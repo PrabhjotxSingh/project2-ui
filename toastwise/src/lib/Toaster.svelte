@@ -16,12 +16,12 @@
     height="300"
     rx="30"
     ry="30"
-    fill="#C0C0C0"
-    stroke="#888"
+    fill="#2c3e50"
+    stroke="#34495e"
     stroke-width="5"
   />
 
-  <rect x="60" y="20" width="180" height="30" rx="10" ry="10" fill="#666" />
+  <rect x="60" y="48" width="180" height="20" fill="#000" />
 
   <rect x="70" y="90" width="160" height="220" fill="black" />
 
@@ -31,8 +31,7 @@
     </div>
   </foreignObject>
 
-  <rect x="60" y="350" width="50" height="20" fill="#555" />
-  <rect x="190" y="350" width="50" height="20" fill="#555" />
+  <rect x="60" y="352" width="180" height="20" fill="#000" />
 </svg>
 
 <style>
