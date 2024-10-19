@@ -1,11 +1,10 @@
 <script>
   import TScreen from "./TScreen.svelte";
 </script>
-
-<svg
+<div >
+  <!-- <svg
   width="80vw"
   height="80vh"
-  viewBox="0 0 300 400"
   xmlns="http://www.w3.org/2000/svg"
   style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);"
 >
@@ -32,9 +31,22 @@
   </foreignObject>
 
   <rect x="60" y="352" width="180" height="20" fill="#000" />
-</svg>
+</svg> -->
+
+<div class="toaster">
+  Toaster content goes here
+</div>
+</div>
+
 
 <style>
+  .toaster{
+    border: 5px solid black;
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;;
+    padding: 5px;
+  }
   svg {
     width: 80vw;
     height: 80vh;
