@@ -1,4 +1,5 @@
 <script>
+  import BreadTypes from "./BreadTypes.svelte";
   import TScreen from "./TScreen.svelte";
   import Timer from "./Timer.svelte";
 
@@ -40,7 +41,7 @@
 <div class="toaster">
 
   <div class="temp">
-    Bread types go here
+    <BreadTypes />
   </div>
   <br>
   <div class="temp">
