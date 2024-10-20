@@ -1,5 +1,9 @@
 <script>
   import TScreen from "./TScreen.svelte";
+  import Timer from "./Timer.svelte";
+
+  let isToasting = false;
+  let toastTime = 2;  //temperary deafult time for the toaster is 2 mins 
 </script>
 <div >
   <!-- <svg
@@ -34,7 +38,16 @@
 </svg> -->
 
 <div class="toaster">
-  Toaster content goes here
+
+  <div class="temp">
+    Bread types go here
+  </div>
+  <br>
+  <div class="temp">
+    Numerical scale goes here 
+  </div>
+<br>
+  <Timer inputMinutes={toastTime}/>
 </div>
 </div>
 
@@ -45,10 +58,17 @@
     width: 800px;
     height: 500px;
     border-radius: 10px;;
-    padding: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
   }
   svg {
     width: 80vw;
     height: 80vh;
+  }
+  .temp{
+    border: 1px solid black;
+    height:100px;
+    padding:10px;
   }
 </style>
