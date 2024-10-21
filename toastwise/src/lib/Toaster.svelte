@@ -1,13 +1,16 @@
 <script>
   import TScreen from "./TScreen.svelte";
   import Timer from "./Timer.svelte";
+  import Favorites from "./Favorites.svelte";
   import BreadTypes from "./BreadTypes.svelte";
-  import {startClicked} from "./store"
-  import {stopClicked} from "./store"
-  import {resetClicked} from "./store"
+  import { startClicked, stopClicked, resetClicked, toastTime, selectedBread } from "./store";
   import NumericalScale from "./NumericalScale.svelte";
 
-  let toastTime = 2;  //temperary deafult time for the toaster is 2 mins 
+  let inputMinutes = 2;  
+  let selectedBreadType = 'n/a'; 
+
+  $: inputMinutes = $toastTime;
+  $: selectedBreadType = $selectedBread;
 
   function click(){
     startClicked.set(true);
@@ -40,8 +43,11 @@
     <NumericalScale on:scaleSelected={handleScaleSelected} />
   </div>
   <br>
-    <Timer inputMinutes={toastTime}/>
-  <div class="timer">
+  <div class="controls">
+    <Favorites />
+    <Timer inputMinutes={inputMinutes} />
+  </div>
+  <div class="ssbutton">
     <button class="button-56" on:click={click}>Start</button>
     <!-- <button class="button-56" on:click={stopClick}>Stop</button> -->
     <button class="button-56" on:click={resetClick}>Stop</button>
@@ -55,12 +61,14 @@
 <style>
   .toaster{
     border: 5px solid black;
-    width: 800px;
-    height: 500px;
-    border-radius: 10px;;
+    max-width: 800px;
+    max-height: 800px; 
+    border-radius: 10px;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box; 
   }
   svg {
     width: 80vw;
@@ -75,12 +83,17 @@
     height:100px;
     padding:10px;
   }
-  .timer{
+  .ssbutton{
     display: flex;
     justify-content: center;
     gap:2%;
   }
-
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    overflow: hidden;
+  }
 
 /* CSS */
 .button-56 {
