@@ -5,6 +5,7 @@
   import {startClicked} from "./store"
   import {stopClicked} from "./store"
   import {resetClicked} from "./store"
+  import NumericalScale from "./NumericalScale.svelte";
 
   let toastTime = 2;  //temperary deafult time for the toaster is 2 mins 
 
@@ -19,6 +20,13 @@
     resetClicked.set(true);
   }
 
+   // Update toast time when the scale is selected
+   function handleScaleSelected(event) {
+    const selectedScale = event.detail; // Get the scale number
+    // Set the toast time based on the selected scale
+    toastTime = selectedScale; // You can map this scale to different times if needed
+  }
+
 
 </script>
 <div >
@@ -29,7 +37,7 @@
   </div>
   <br>
   <div class="temp">
-    Numerical scale goes here 
+    <NumericalScale on:scaleSelected={handleScaleSelected} />
   </div>
   <br>
     <Timer inputMinutes={toastTime}/>
