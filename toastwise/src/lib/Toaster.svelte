@@ -24,7 +24,7 @@
 <div >
 <div class="toaster">
 
-  <div class="temp">
+  <div class="breadTypes">
     <BreadTypes />
   </div>
   <br>
@@ -63,7 +63,10 @@
     height:100px;
     padding:10px;
   }
-
+  .breadTypes{
+    height:100px;
+    padding:10px;
+  }
   .timer{
     display: flex;
     justify-content: center;
