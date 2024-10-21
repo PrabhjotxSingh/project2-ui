@@ -27,7 +27,7 @@
    function handleScaleSelected(event) {
     const selectedScale = event.detail; // Get the scale number
     // Set the toast time based on the selected scale
-    toastTime = selectedScale; // You can map this scale to different times if needed
+    inputMinutes = selectedScale;
   }
 
 
