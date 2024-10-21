@@ -1,6 +1,7 @@
 <script>
   import TScreen from "./TScreen.svelte";
   import Timer from "./Timer.svelte";
+  import BreadTypes from "./BreadTypes.svelte";
 
   let isToasting = false;
   let toastTime = 2;  //temperary deafult time for the toaster is 2 mins 
@@ -40,7 +41,7 @@
 <div class="toaster">
 
   <div class="temp">
-    Bread types go here
+    <BreadTypes />
   </div>
   <br>
   <div class="temp">

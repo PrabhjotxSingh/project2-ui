@@ -1,12 +1,19 @@
 <script>
     import { currentTimer } from './store';  // Import the shared store
+    import { selectedBread } from './store';
 
     export let status = true;
     let displayTimer;
+    let displayBread;
     // using the writable store to get the current time
     currentTimer.subscribe(value => {
         displayTimer = value;
     });
+
+    selectedBread.subscribe(value => {
+      displayBread = value;
+    });
+
 </script>
 
 <div class="phoneBody">
@@ -22,6 +29,10 @@
         <h3 class=timerHeader>Current Timer</h3>
         <span class="time">{displayTimer}</span>
     </div> 
+    <div class=timeDiv>
+      <h3 class=timerHeader>You have selected</h3>
+      <span class="time">{displayBread}</span>
+  </div> 
 </div>
 
 <style>
