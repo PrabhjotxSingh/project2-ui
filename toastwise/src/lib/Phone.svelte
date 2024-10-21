@@ -1,10 +1,20 @@
 <script>
     import { currentTimer } from './store';  // Import the shared store
     import { selectedBread } from './store';
+    import {toasterStatus} from "./store"
 
-    export let status = true;
+    let status = false;
     let displayTimer;
     let displayBread;
+
+    $: {
+        if ($toasterStatus) {
+            status = true;
+        } else {
+            status = false;
+        }
+    }
+
     // using the writable store to get the current time
     currentTimer.subscribe(value => {
         displayTimer = value;
@@ -70,6 +80,8 @@
     padding: 5px;
   }
   .time{
-    font-size: 60px;;
+    font-size: 60px;
+    text-shadow: 2px 2px 5px #ccc;
+
   }
 </style>
