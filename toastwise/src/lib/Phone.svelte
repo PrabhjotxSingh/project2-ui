@@ -1,9 +1,11 @@
 <script>
     import { currentTimer } from './store';  // Import the shared store
+    import { selectedBread } from './store';
     import {toasterStatus} from "./store"
 
     let status = false;
     let displayTimer;
+    let displayBread;
 
     $: {
         if ($toasterStatus) {
@@ -17,6 +19,11 @@
     currentTimer.subscribe(value => {
         displayTimer = value;
     });
+
+    selectedBread.subscribe(value => {
+      displayBread = value;
+    });
+
 </script>
 
 <div class="phoneBody">
@@ -32,6 +39,10 @@
         <h3 class=timerHeader>Current Timer</h3>
         <span class="time">{displayTimer}</span>
     </div> 
+    <div class=timeDiv>
+      <h3 class=timerHeader>You have selected</h3>
+      <span class="time">{displayBread}</span>
+  </div> 
 </div>
 
 <style>
