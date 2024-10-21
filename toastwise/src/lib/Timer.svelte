@@ -16,6 +16,12 @@
         toasterStatus.set(true);
         console.log("toaster status is true")
     }
+
+    $: if (inputMinutes > 0) {
+        totalSeconds = inputMinutes * 60;
+        displayTime = formatTime(totalSeconds);
+    }
+
     // Listens for the start click from Toaster.svelte
     startClicked.subscribe(value => {
         if (value) {
@@ -106,7 +112,7 @@
         border-radius: 8px;
         padding: 1rem;
         width: 40%;
-        margin: auto;
+        margin-left: auto;
         margin-bottom: 20px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
