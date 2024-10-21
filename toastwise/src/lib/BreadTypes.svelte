@@ -86,6 +86,6 @@
     {#if currentSelection !== 'none'}
         Selected: {currentSelection}
     {:else}
-        No bread selected
+        No bread was selected
     {/if}
 </div> -->
