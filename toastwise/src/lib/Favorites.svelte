@@ -30,7 +30,7 @@
     overflow-y: auto;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     margin-bottom: 20px;
-    height: 38%;
+    height: 36%;
   }
 
   .favorite-item {
