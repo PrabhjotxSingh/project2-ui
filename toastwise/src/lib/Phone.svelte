@@ -328,6 +328,24 @@
     font-weight: bold;
   }
 
+  back-button:hover,
+  .edit-button:hover {
+    background-color: #e0e0e0;
+  }
+  .popup {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    width: 200px;
+    height: 200px;
+  }
+
   .camera-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -344,6 +362,13 @@
     margin: 0;
     font-size: 16px;
     font-weight: bold;
+  }
+
+  .close-popup {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
   }
 
   .gif-container {
