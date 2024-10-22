@@ -1,46 +1,50 @@
 <script>
-  import { currentTimer } from "./store"; // Importing currentTimer which is the shared store
-  import { startClicked } from "./store";
-  import { stopClicked } from "./store";
-  import { resetClicked } from "./store";
-  import { toasterStatus } from "./store";
+  import { currentTimer } from "./store";
+  import {
+    startClicked,
+    stopClicked,
+    resetClicked,
+    toasterStatus,
+  } from "./store";
 
-  export let inputMinutes;
+  export let inputMinutes; // Accepting input minutes as a prop
   let totalSeconds = 0;
   let timerInterval;
   let isRunning = false;
   let displayTime = "00:00";
 
   let timerIsOn = false;
+
   $: if (timerIsOn) {
     toasterStatus.set(true);
     console.log("toaster status is true");
   }
 
-  $: if (inputMinutes > 0) {
-    totalSeconds = inputMinutes * 60;
-    displayTime = formatTime(totalSeconds);
+  // Reactive statement to update display time based on inputMinutes
+  $: if (inputMinutes > 0 && !isRunning) {
+    totalSeconds = inputMinutes * 60; // Ensure this is only set when the timer isn't running
+    displayTime = formatTime(totalSeconds); // Update display time accordingly
   }
 
-  // Listens for the start click from Toaster.svelte
+  // Start Timer when startClicked event is triggered
   startClicked.subscribe((value) => {
     if (value) {
       if (!isRunning) {
-        // this makes sure that the timer only stars when its not already running
-        timerIsOn = true;
         startTimer();
       }
       startClicked.set(false); // Reset the writable
     }
   });
 
+  // Stop Timer when stopClicked event is triggered
   stopClicked.subscribe((value) => {
     if (value) {
       stopTimer();
-      startClicked.set(false);
+      stopClicked.set(false);
     }
   });
 
+  // Reset Timer when resetClicked event is triggered
   resetClicked.subscribe((value) => {
     if (value) {
       resetTimer();
@@ -59,18 +63,20 @@
   function startTimer() {
     if (inputMinutes <= 0 || isRunning) return;
 
-    totalSeconds = inputMinutes * 60;
+    totalSeconds = inputMinutes * 60; // Initialize totalSeconds here
     isRunning = true;
 
     timerInterval = setInterval(() => {
       if (totalSeconds <= 0) {
         clearInterval(timerInterval);
         isRunning = false;
-        timerIsOn = false; // Resets the timer state
+        timerIsOn = false;
+        toasterStatus.set(false);
       } else {
         totalSeconds--;
         displayTime = formatTime(totalSeconds);
         currentTimer.set(displayTime); // Update the store with the current time
+        toasterStatus.set(true);
       }
     }, 1000);
   }
@@ -81,16 +87,14 @@
     isRunning = false;
     toasterStatus.set(false);
     timerIsOn = false;
-    currentTimer.set(displayTime); // Reset the store value
   }
 
   // Reset the timer and allow starting again
   function resetTimer() {
     stopTimer();
     displayTime = "00:00";
-    inputMinutes = 0;
     totalSeconds = 0;
-    timerIsOn = false; // Reset the start flag
+    timerIsOn = false;
     currentTimer.set(displayTime); // Reset the store value
   }
 </script>

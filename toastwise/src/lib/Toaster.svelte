@@ -31,6 +31,7 @@
   function handleScaleSelected(event) {
     const selectedScale = event.detail; // Get the scale number
     // Set the toast time based on the selected scale
+    toastTime.set(selectedScale);
     inputMinutes = selectedScale;
   }
 </script>
@@ -63,7 +64,7 @@
       <div class="bord">
         <Favorites />
       </div>
-      <Timer inputMinutes={toastTime} />
+      <Timer {inputMinutes} />
 
       <div class="timer items">
         <div class="input-field">
