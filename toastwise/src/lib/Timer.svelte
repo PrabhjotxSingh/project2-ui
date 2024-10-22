@@ -5,7 +5,7 @@
     import {resetClicked} from "./store"
     import {toasterStatus} from "./store"
 
-    export let inputMinutes = 0;
+    export let inputMinutes;
     let totalSeconds = 0;
     let timerInterval;
     let isRunning = false;
@@ -96,38 +96,44 @@
 </script>
 
 <div class="timerDiv">
-    <h3>Timer</h3>
-    <div class="input-field">
-        <label for="minutes">Enter minutes:</label>
+    <!-- <div class="input-field">
+        <label for="minutes">Enter Minutes</label>
         <input type="number" id="minutes" bind:value={inputMinutes} min="0" placeholder="0">
-    </div>
+    </div> -->
     <div class="timer">
         <div id="display" class="display">{displayTime}</div>   
     </div>
+    
+    
 </div>
 
 <style>
     .timerDiv {
-        border: 2px solid #111;
-        border-radius: 8px;
-        padding: 1rem;
-        width: 40%;
-        margin-left: auto;
+        /* border: 2px solid #111; */
+        /* border-radius: 8px; */
+        /* padding: 1rem; */
+        width: 30%;
         margin-bottom: 20px;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+      
     }
 
     .timer {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 1rem;
+        border: 2px solid #ccc;
+        padding: 80px 100px;
+        border-radius: 50%;
+        margin-right: 10px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; 
+
+
     }
 
     .display {
         font-size: 60px;
         text-shadow: 2px 2px 5px #ccc;
-
     }
 
     button {
@@ -136,13 +142,17 @@
         font-size: 1rem;
         cursor: pointer;
     }
-
+/* 
     .input-field {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem;   
     }
 
     input {
         padding: 0.5rem;
         font-size: 1rem;
     }
+    #minutes{  
+        width:50px;
+        border: 1px solid #ccc;
+    } */
 </style>

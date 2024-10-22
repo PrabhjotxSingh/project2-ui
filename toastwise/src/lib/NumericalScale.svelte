@@ -2,13 +2,12 @@
     let selected = 0; // To keep track of the selected number
     const scale = [1, 2, 3, 4, 5]; // The scale values
 
-    // Dispatch event to pass the selected scale value
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
 
     function selectCircle(num) {
         selected = num;
-        dispatch('scaleSelected', num); // Emit the selected number
+        dispatch('scaleSelected', num); 
     }
 </script>
 
@@ -45,11 +44,12 @@
 </style>
 
 <div class="scale-container">
-    {#each scale as num}
-      <div 
-        class="circle circle-{num} {selected === num ? 'selected' : ''}"
-        on:click={() => selectCircle(num)}>
-        {num}
-      </div>
-    {/each}
+  {#each scale as num}
+    <div 
+      class="circle circle-{num} {selected === num ? 'selected' : ''}"
+      on:click={() => selectCircle(num)}>
+      {num}
+    </div>
+  {/each}
+
 </div>

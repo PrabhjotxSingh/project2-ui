@@ -15,6 +15,7 @@
 </main>
 
 <style>
+
   .toaster {
     width: 70%; /* Set width to 70% */
     border: 1px solid black;
@@ -37,4 +38,6 @@
     justify-content: center; 
     height: 100vh; 
   }
+
+
 </style>

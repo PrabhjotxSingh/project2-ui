@@ -23,7 +23,7 @@
       border: 2px solid #111;
       border-radius: 8px;
       padding: 1rem;
-      width: 40%;
+      /* width: 40%; */
       overflow-y: auto;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
       margin-bottom: 20px;

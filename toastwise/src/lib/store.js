@@ -10,9 +10,9 @@ export const toasterStatus = writable(false);
 
 // Favorites list
 export const favorites = writable([
-    { title: 'Neha Bread 1', breadType: 'Whole Wheat', time: 2 },
-    { title: 'Neha Bread 2', breadType: 'White Bread', time: 3 },
-    { title: 'Morning Bagel', breadType: 'Bagel', time: 4 },
-    { title: 'Evening Toast', breadType: 'English Muffin', time: 1 },
-    { title: 'Crunchy Delight', breadType: 'Croissant', time: 5 }
+  { title: "Neha Bread 1", breadType: "Whole Wheat", time: 2 },
+  { title: "Neha Bread 2", breadType: "White Bread", time: 3 },
+  { title: "Morning Bagel", breadType: "Bagel", time: 4 },
+  { title: "Evening Toast", breadType: "English Muffin", time: 1 },
+  { title: "Crunchy Delight", breadType: "Croissant", time: 5 },
 ]);
