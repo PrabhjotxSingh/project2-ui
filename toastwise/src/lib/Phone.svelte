@@ -190,6 +190,7 @@
     height: 500px;
     width: 250px;
     padding: 5px;
+    background-color: white;
   }
   .time {
     font-size: 60px;

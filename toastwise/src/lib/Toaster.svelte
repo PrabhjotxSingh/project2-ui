@@ -93,6 +93,7 @@
     margin: 0px;
   }
   .toaster {
+    background-color: white;
     border: 5px solid black;
     max-width: 800px;
     max-height: 800px;
