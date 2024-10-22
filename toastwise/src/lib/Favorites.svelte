@@ -27,16 +27,35 @@
 </div>
 
 <style>
-  .favorites-container {
-    border: 2px solid #111;
-    border-radius: 8px;
-    padding: 1rem;
-    overflow-y: auto;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    margin-bottom: 20px;
-    height: 180px;
-    width: 300px;
-  }
+.favorites-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;;
+  padding: 1rem;
+  overflow-y: auto;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-bottom: 20px;
+  height: 180px;
+  width: 300px;
+}
+
+/* Scrollbar style from #style-2 */
+.favorites-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0px;
+  background-color: #F5F5F5;
+}
+
+.favorites-container::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+.favorites-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #000; /* Red thumb */
+}
+
 
   .favorite-item {
     margin-bottom: 20px;
