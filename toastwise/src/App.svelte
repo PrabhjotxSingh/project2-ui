@@ -97,7 +97,7 @@
   .toaster_container {
     background-color: white;
     padding: 180px;
-    background-image: url("./toaster.jpg");
+    background-image: url("/toaster.jpg");
     background-size: cover;
     background-position: center;
   }
