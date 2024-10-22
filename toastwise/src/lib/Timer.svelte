@@ -12,6 +12,7 @@
   let timerInterval;
   let isRunning = false;
   let displayTime = "00:00";
+  let timerElement;
 
   let timerIsOn = false;
 
@@ -59,6 +60,12 @@
     return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   }
 
+  function toastDone() {
+    timerElement.style.boxShadow = "rgba(199, 82, 42, 1) 0px 0px 20px 5px";
+    setTimeout(() => {
+      timerElement.style.boxShadow = "rgba(149, 157, 165, 0.2) 0px 8px 24px";
+    }, 10000);
+  }
   // Start the timer
   function startTimer() {
     if (inputMinutes <= 0 || isRunning) return;
@@ -72,6 +79,7 @@
         isRunning = false;
         timerIsOn = false;
         toasterStatus.set(false);
+        toastDone();
       } else {
         totalSeconds--;
         displayTime = formatTime(totalSeconds);
@@ -104,7 +112,7 @@
         <label for="minutes">Enter Minutes</label>
         <input type="number" id="minutes" bind:value={inputMinutes} min="0" placeholder="0">
     </div> -->
-  <div class="timer">
+  <div class="timer" bind:this={timerElement}>
     <div id="display" class="display">{displayTime}</div>
   </div>
 </div>
