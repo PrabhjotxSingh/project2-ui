@@ -3,12 +3,12 @@
     import { selectedBread } from './store.js'; 
 
     let breads = [
-        { name: "Whole Wheat Bread", img: "wholewheatbread.png" },
-        { name: "White Bread", img: "whitebread.webp" },
-        { name: "Bagel", img: "bagel.png" },
-        { name: "Waffle", img: "waffle.png" },
-        { name: "English Muffin", img: "englishmuffin.webp" },
-        { name: "Croissant", img: "croissant.png" },
+        { name: "Whole Wheat Bread", img: "wholewheatbread.png", gif: "wholewheatbread.gif" },
+        { name: "White Bread", img: "whitebread.webp", gif: "whitebread.gif" },
+        { name: "Bagel", img: "bagel.png", gif: "bagel.gif"  },
+        { name: "Waffle", img: "waffle.png", gif: "waffle.gif"  },
+        { name: "English Muffin", img: "englishmuffin.webp", gif: "englishmuffin.gif"  },
+        { name: "Croissant", img: "croissant.png", gif: "croissant.gif"  },
     ];
 
     let currentSelection = 'none';
