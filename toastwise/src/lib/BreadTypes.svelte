@@ -64,6 +64,8 @@
         margin-top: 20px;
         font-size: 1.2rem;
     }
+
+    
 </style>
 
 <div class="carousel-container">

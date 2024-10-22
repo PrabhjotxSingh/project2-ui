@@ -78,7 +78,7 @@
           />
         </div>
         <div class="buttons">
-          <button class="button-56" on:click={click}>Start</button>
+          <button class="button-56"  on:click={click}>Start</button>
           <!-- <button class="button-56" on:click={stopClick}>Stop</button> -->
           <br />
           <button class="button-56" on:click={resetClick}>Stop</button>
@@ -104,9 +104,10 @@
     justify-content: space-between;
     box-sizing: border-box;
     width: 800px;
-    height: 550px;
+    height: 600px;
     border-radius: 10px;
     padding: 20px;
+
   }
   svg {
     width: 80vw;
