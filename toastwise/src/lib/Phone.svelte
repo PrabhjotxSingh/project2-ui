@@ -10,6 +10,8 @@
   let displayTimer;
   let displayBread;
   let showEditScreen = false;
+  let showGif = false;
+  let buttonClicked = false; 
 
   // Toggle between screens
   function toggleEditScreen() {
@@ -24,7 +26,7 @@
     }
   }
 
-  // using the writable store to get the current time
+  // Using the writable store to get the current time
   currentTimer.subscribe((value) => {
     displayTimer = value;
   });
@@ -63,6 +65,18 @@
   function deleteFavorite(index) {
     favorites.update((favs) => favs.filter((_, i) => i !== index));
   }
+  
+  function toggleGif() {
+    if (status && !buttonClicked) {
+      showGif = true;
+      buttonClicked = true; // Disable the button after clicking
+    }
+  }
+  function closeGif() {
+    showGif = false; // Hide the GIF
+    buttonClicked = false; // Reset button state to allow clicking again
+  }
+
 </script>
 
 <div class="phoneBody">
@@ -147,6 +161,25 @@
       <div class="timeDiv">
         <h3 class="timerHeader">You have selected</h3>
         <span class="bread">{displayBread}</span>
+        {#if !showGif}
+        <div class="cameraDiv">
+          <button 
+            class="camera-button" 
+            on:click={toggleGif} 
+            disabled={!status || displayBread === "none"} 
+          >
+            📷
+          </button>
+        </div>
+      {/if}
+      {#if showGif && status}
+      <br />
+      <div class="gif-container">
+        <button class="close-gif" on:click={closeGif}>✖</button>
+        <img src="./{displayBread}.gif" alt="{displayBread?.name} GIF" style="width: 100px;"
+        />
+      </div>
+    {/if}
       </div>
       <br />
       <br />
@@ -177,6 +210,7 @@
   }
   .timeDiv {
     text-align: center;
+    margin-bottom: 20px;
   }
   .timerHeader {
     margin-bottom: 0px;
@@ -190,14 +224,13 @@
     height: 500px;
     width: 250px;
     padding: 5px;
-    background-color: white;
   }
   .time {
     font-size: 60px;
     text-shadow: 2px 2px 5px #ccc;
   }
   .bread {
-    font-size: 40px;
+    font-size: 20px;
     text-shadow: 2px 2px 5px #ccc;
   }
   .overlay {
@@ -295,23 +328,9 @@
     font-weight: bold;
   }
 
-  .back-button:hover,
-  .edit-button:hover {
-    background-color: #e0e0e0;
-  }
-
-  .popup {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    width: 200px;
-    height: 200px;
+  .camera-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .popup-header {
@@ -327,12 +346,22 @@
     font-weight: bold;
   }
 
-  .close-popup {
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-  }
+  .gif-container {
+  position: relative; 
+  display: inline-block; 
+}
+
+.close-gif {
+  position: absolute; 
+  top: 5px; 
+  right: 5px; 
+  background-color: transparent; 
+  border: none; 
+  font-size: 24px; 
+  color: white; 
+  cursor: pointer; 
+  z-index: 1000; 
+}
 
   .popup-body {
     display: flex;
