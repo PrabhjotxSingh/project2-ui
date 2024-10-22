@@ -9,17 +9,21 @@
 </script>
 
 <div class="favorites-container">
-  {#each $favorites as favorite}
-    <button
-      class="favorite-item"
-      on:click={() => handleFavoriteClick(favorite)}
-    >
-      <h2 class="favorite-title">{favorite.title}</h2>
-      <p class="favorite-details">
-        {favorite.breadType} - {favorite.time} minutes
-      </p>
-    </button>
-  {/each}
+  {#if $favorites.length > 0}
+    {#each $favorites as favorite}
+      <button
+        class="favorite-item"
+        on:click={() => handleFavoriteClick(favorite)}
+      >
+        <h2 class="favorite-title">{favorite.title}</h2>
+        <p class="favorite-details">
+          {favorite.breadType} - {favorite.time} minutes
+        </p>
+      </button>
+    {/each}
+  {:else}
+    <p>No favorites available.</p>
+  {/if}
 </div>
 
 <style>
@@ -30,7 +34,8 @@
     overflow-y: auto;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     margin-bottom: 20px;
-    height: 36%;
+    height: 180px;
+    width: 300px;
   }
 
   .favorite-item {

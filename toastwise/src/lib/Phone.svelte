@@ -73,22 +73,24 @@
         <h2>Favorites</h2>
         <button class="add-button" on:click={toggleAddFavorite}>+</button>
       </div>
-
-      <ul class="favorites-list">
-        {#each $favorites as favorite, index}
-          <li class="favorite-item">
-            <div class="item-content">
-              <span class="favorite-title">{favorite.title}</span>
-              <span class="favorite-details"
-                >{favorite.breadType} - {favorite.time} min</span
+      <div class="favorites-container">
+        <ul class="favorites-list">
+          {#each $favorites as favorite, index}
+            <li class="favorite-item">
+              <div class="item-content">
+                <span class="favorite-title">{favorite.title}</span>
+                <span class="favorite-details"
+                  >{favorite.breadType} - {favorite.time} min</span
+                >
+              </div>
+              <button
+                class="delete-button"
+                on:click={() => deleteFavorite(index)}>-</button
               >
-            </div>
-            <button class="delete-button" on:click={() => deleteFavorite(index)}
-              >-</button
-            >
-          </li>
-        {/each}
-      </ul>
+            </li>
+          {/each}
+        </ul>
+      </div>
 
       <button class="back-button" on:click={toggleEditScreen}>Done</button>
       <!-- Done button to go back -->
@@ -357,5 +359,10 @@
 
   .submit-button:hover {
     background-color: #1486ff;
+  }
+
+  .favorites-container {
+    height: 400px;
+    overflow-y: scroll;
   }
 </style>
