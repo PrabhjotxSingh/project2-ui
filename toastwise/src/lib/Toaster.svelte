@@ -59,7 +59,7 @@
     <button class="button-56" on:click={resetClick}>Stop</button>
   </div>
    -->
-
+   <h3 style="margin-bottom: 4px;">Favorites:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Timer:</h3>
     <div class="temp">
       <div class="bord">
         <Favorites />
